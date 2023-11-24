@@ -1,0 +1,10 @@
+.banner-added{
+    background-image: linear-gradient(
+        rgba(27, 25, 25, 0.591),
+        rgba(30, 29, 29, 0.97)
+      ),
+      url('../../../assets/images/banner-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
