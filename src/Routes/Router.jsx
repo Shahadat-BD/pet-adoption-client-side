@@ -6,6 +6,7 @@ import PetListing from "../Pages/PetListing/PetListing";
 import DonationCamPagins from "../Pages/DonationCamPagins/DonationCamPagins";
 import Login from "../Authentication/Login/Login";
 import Register from "../Authentication/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
         },
         {
           path : "/petListing",
-          element : <PetListing/>
+          element : <PrivateRoute><PetListing/></PrivateRoute>
         },
         {
           path : "/donationCampaign",

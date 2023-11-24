@@ -46,7 +46,7 @@ const Footer = () => {
     
                 </nav>
                 <nav>
-                   <header className="footer-title">Company</header>
+                   <header className="footer-title">Category Image</header>
                     <div className='grid grid-cols-2 gap-5'>
                         <img className='w-24 h-20 rounded-md' src={img_1} alt="" srcset="" />
                         <img className='w-24 h-20 rounded-md' src={img_2} alt="" srcset="" />

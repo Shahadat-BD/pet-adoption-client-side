@@ -2,9 +2,9 @@ import React from 'react';
 
 const DonationCamPagins = () => {
     return (
-        <div>
-            <h1>this is donation CamPaign</h1>
-        </div>
+        <div className='pt-32 pb-20'>
+        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae vel, voluptas iusto illo, quasi aperiam saepe minima magni inventore cum nihil nemo vitae velit blanditiis enim deserunt id sint amet? Ad odio esse tempore nostrum ratione quod obcaecati placeat rerum sequi sed veniam, atque cumque, animi eligendi ex quos voluptate? Inventore, eaque nulla? Ex natus eaque quae consectetur quidem, quos dolore! Enim voluptatem, earum aut esse ea molestias perspiciatis fuga ad quibusdam nemo similique sapiente ut excepturi vitae beatae pariatur autem velit facere dicta neque libero minima? Distinctio ipsum dignissimos maiores tenetur ratione earum ipsam magnam alias doloremque praesentium nam assumenda perferendis, natus architecto enim accusamus voluptas mollitia minus rem! Error praesentium quasi tempora aut doloremque fugiat placeat blanditiis labore possimus similique sed, est sunt libero nam, numquam, voluptatibus at exercitationem ipsum quis eius itaque. Ut dolor, officia non ea possimus doloribus natus expedita tempore sapiente veniam suscipit omnis ipsa delectus quasi voluptas quae dignissimos! Aliquam sequi dignissimos, in reprehenderit repudiandae veritatis iure aperiam, nobis voluptatibus, magnam aliquid! Dicta laudantium consequatur alias ipsum atque velit, nostrum minima veritatis. Ipsum placeat quas, ex debitis laborum temporibus sed dolor mollitia nesciunt repellendus. Natus atque distinctio quis ad voluptas labore repellendus, nihil in expedita assumenda delectus nam harum sapiente temporibus asperiores blanditiis possimus voluptates tenetur qui eius! Facilis, adipisci facere eligendi doloribus porro perspiciatis excepturi officiis. Dicta cupiditate iusto porro eos. Vero, possimus mollitia quia culpa quae, facere numquam dolorum repellendus officia reprehenderit veritatis? Quam iure quae, eveniet rerum pariatur aliquid deleniti placeat dolor esse voluptatem sed neque, repellendus totam possimus debitis magni reprehenderit eum libero ipsam quas? Necessitatibus repellendus, commodi consectetur tempore doloremque delectus pariatur dolorem dolor itaque? Perspiciatis officiis aspernatur veniam accusantium pariatur non reprehenderit. Officiis dicta pariatur eius tempora, deserunt cum dolorum, corrupti minima veniam a suscipit, ab illo praesentium.</h2>
+       </div>
     );
 };
 
