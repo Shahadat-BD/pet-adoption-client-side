@@ -6,9 +6,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { updateProfile } from "firebase/auth";
 import {FiEye,FiEyeOff} from 'react-icons/fi'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const Register = () => {
     const navigate = useNavigate()
     const location = useLocation();
+    const axiosPublic = useAxiosPublic()
     const [showPassword,setShowPassword] = useState(false)
     const {googleSignIn,setUser,createSignInUser} = useContext(AuthContext)
 
@@ -36,11 +38,16 @@ const Register = () => {
                 photoURL : photoURL,
                })
                .then(()=>{
-                  console.log('profile updated');
                   window.location.reload(true)
                })
+               const userInfo = { name : name, email : email, photoURL : photoURL}
+               axiosPublic.post('/user',userInfo)
+               .then(res => {
+                  if (res.data.insertedId) {
+                    toast('user created Successfully')
+                  }
+               })
                setUser(result.user)
-               toast('user created Successfully')
                navigate(location.state?.from.pathname || '/')
             })
             .catch((error)=>{
@@ -53,9 +60,19 @@ const Register = () => {
     const handleGoogleSignIn = () =>{
         googleSignIn()
         .then((result)=>{
-            setUser(result.user)
-            navigate(location.state?.from.pathname || '/')
-            toast('user logged in successfully')
+          const userInfo = {
+            name  : result.user.displayName,
+            email : result.user.email,
+            photoURL : result.user.photoURL
+          }
+          axiosPublic.post('/user',userInfo)
+          .then(res => {
+             if (res.data.insertedId) {
+                toast('user logged in successfully')
+              }
+          })  
+          setUser(result.user)
+          navigate(location.state?.from.pathname || '/')
         })
         .catch((error)=>{
             toast(error.message)

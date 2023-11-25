@@ -5,10 +5,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiEye, FiEyeOff } from 'react-icons/fi'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic()
   const [showPassword, setShowPassword] = useState(false)
   const { setUser, signInUser, googleSignIn } = useContext(AuthContext);
 
@@ -31,9 +33,19 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
+        const userInfo = {
+          name  : result.user.displayName,
+          email : result.user.email,
+          photoURL : result.user.photoURL
+        }
+        axiosPublic.post('/user',userInfo)
+        .then(res => {
+           if (res.data.insertedId) {
+              toast('user logged in successfully')
+            }
+        }) 
         setUser(result.user)
         navigate(location.state?.from.pathname || '/')
-        toast('user logged in successfully')
       })
       .catch((error) => {
         toast(error.message)

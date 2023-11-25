@@ -14,6 +14,7 @@ import CreateDonationCampaign from "../Pages/Dashboard/UserDashboard/CreateDonat
 import AllUser from "../Pages/Dashboard/AdminDashboard/AllUser/AllUser";
 import AllPets from "../Pages/Dashboard/AdminDashboard/AllPets/AllPets";
 import AllDonation from "../Pages/Dashboard/AdminDashboard/AllDonation/AllDonation";
+import AdminRotes from "./AdminRotes";
 
 const router = createBrowserRouter([
     {
@@ -65,7 +66,7 @@ const router = createBrowserRouter([
         // only admin go to this route.
         {
           path : "users",
-          element :<AllUser/>
+          element :<AdminRotes><AllUser/></AdminRotes>
         },
         {
           path : "allPets",

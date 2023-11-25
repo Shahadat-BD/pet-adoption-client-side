@@ -1,11 +1,12 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import logo from '../assets/logo.png'
+import useAdmin from '../hooks/useAdmin';
 const Dashboard = () => {
     // TODO :
-    const isAdmin = true
+    const [isAdmin] = useAdmin()
     return (
         <div>
-            <div className='flex lg:flex-row flex-col'>
+            <div className='flex lg:flex-row flex-col h-[100%]'>
                 <div className='lg:w-[270px] w-full lg:min-h-screen h-[100%] bg-[#2C3E50]'>
                     <ul className='menu'>
                         <div className='flex items-center text-center my-5'>
@@ -13,7 +14,7 @@ const Dashboard = () => {
                            <p className='text-4xl text-white font-extrabold'>adopt</p>
                         </div>
                         {
-                            !isAdmin ?
+                            isAdmin ?
                                 <>
                                     <li className='logo text-lg font-medium'>
                                         <NavLink
@@ -142,7 +143,7 @@ const Dashboard = () => {
 
                     </ul>
                 </div>
-                <div>
+                <div className='flex-1'>
                     <Outlet></Outlet>
                 </div>
             </div>
