@@ -77,7 +77,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="">
               {
-              user
+              user?.email
                 ? 
                 <img className="w-12 h-12  rounded-full mr-2" src={user.photoURL} alt="" />
                 : ''
