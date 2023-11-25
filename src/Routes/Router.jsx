@@ -7,6 +7,13 @@ import DonationCamPagins from "../Pages/DonationCamPagins/DonationCamPagins";
 import Login from "../Authentication/Login/Login";
 import Register from "../Authentication/Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import AddPet from "../Pages/Dashboard/UserDashboard/AddPet/AddPet";
+import MyAddedPets from "../Pages/Dashboard/UserDashboard/MyAddedPets/MyAddedPets";
+import CreateDonationCampaign from "../Pages/Dashboard/UserDashboard/CreateDonationCampaign/CreateDonationCampaign";
+import AllUser from "../Pages/Dashboard/AdminDashboard/AllUser/AllUser";
+import AllPets from "../Pages/Dashboard/AdminDashboard/AllPets/AllPets";
+import AllDonation from "../Pages/Dashboard/AdminDashboard/AllDonation/AllDonation";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +42,40 @@ const router = createBrowserRouter([
           element : <Register/>
         }
       ]      
+    },
+    {
+      path : 'dashboard',
+      element : <PrivateRoute><Dashboard/></PrivateRoute>,
+      errorElement : <ErrorPage/>,
+      children : [
+        // => user => myAddedPets,adoptionRequest,createDonationCampaign,myDonationCampaign,myDonation
+        // users,allPets,allDonation => admin
+        {
+          path : "addPet",
+          element :<AddPet/>
+        },
+        {
+          path : "myAddedPets",
+          element :<MyAddedPets/>
+        },
+        {
+          path : "createDonationCampaign",
+          element :<CreateDonationCampaign/>
+        },
+        // only admin go to this route.
+        {
+          path : "users",
+          element :<AllUser/>
+        },
+        {
+          path : "allPets",
+          element : <AllPets/>
+        },
+        {
+          path : "allDonation",
+          element :<AllDonation/>
+        }
+      ]
     }
 ])
 export default router

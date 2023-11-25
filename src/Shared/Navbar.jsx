@@ -85,8 +85,8 @@ const Navbar = () => {
             </label>
             <ul tabIndex={0} className="dropdown-content z-[1] menu  shadow text-black bg-base-100 rounded-box w-52">
               <li><p className=''>{user && user.displayName}</p></li>
-              <li><p className=''> Dashboard </p></li>
-              <li><button className='' onClick={handleLogOut}>Log Out</button></li>
+              <li><Link to={'/dashboard/addPet'}>Dashboard</Link></li>
+              <li><button onClick={handleLogOut}>Log Out</button></li>
             </ul>
           </div>
         </div>
