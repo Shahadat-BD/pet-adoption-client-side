@@ -1,9 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
+import Select from 'react-select'
 
 const PetListing = () => {
+    const axiosPublic = useAxiosPublic()
+    const [searchItem,setSearchItem] = useState("")
+    const options = [
+        { value: 'cat', label: 'Cat' },
+        { value: 'dog', label: 'Dog' },
+        { value: 'rabbit', label: 'Rabbit' },
+        { value: 'goat', label: 'Goat' }
+      ]
+    const { data : allPet = []} = useQuery({
+        queryKey :['allPet'],
+        queryFn : async()=>{
+            const res = await axiosPublic.get('/addPet')
+            return  res.data
+        }
+    })
+  
+    const handleChange = (e) => {
+        console.log(e.value);
+    }
+
     return (
-        <div className='pt-32 pb-20'>
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae vel, voluptas iusto illo, quasi aperiam saepe minima magni inventore cum nihil nemo vitae velit blanditiis enim deserunt id sint amet? Ad odio esse tempore nostrum ratione quod obcaecati placeat rerum sequi sed veniam, atque cumque, animi eligendi ex quos voluptate? Inventore, eaque nulla? Ex natus eaque quae consectetur quidem, quos dolore! Enim voluptatem, earum aut esse ea molestias perspiciatis fuga ad quibusdam nemo similique sapiente ut excepturi vitae beatae pariatur autem velit facere dicta neque libero minima? Distinctio ipsum dignissimos maiores tenetur ratione earum ipsam magnam alias doloremque praesentium nam assumenda perferendis, natus architecto enim accusamus voluptas mollitia minus rem! Error praesentium quasi tempora aut doloremque fugiat placeat blanditiis labore possimus similique sed, est sunt libero nam, numquam, voluptatibus at exercitationem ipsum quis eius itaque. Ut dolor, officia non ea possimus doloribus natus expedita tempore sapiente veniam suscipit omnis ipsa delectus quasi voluptas quae dignissimos! Aliquam sequi dignissimos, in reprehenderit repudiandae veritatis iure aperiam, nobis voluptatibus, magnam aliquid! Dicta laudantium consequatur alias ipsum atque velit, nostrum minima veritatis. Ipsum placeat quas, ex debitis laborum temporibus sed dolor mollitia nesciunt repellendus. Natus atque distinctio quis ad voluptas labore repellendus, nihil in expedita assumenda delectus nam harum sapiente temporibus asperiores blanditiis possimus voluptates tenetur qui eius! Facilis, adipisci facere eligendi doloribus porro perspiciatis excepturi officiis. Dicta cupiditate iusto porro eos. Vero, possimus mollitia quia culpa quae, facere numquam dolorum repellendus officia reprehenderit veritatis? Quam iure quae, eveniet rerum pariatur aliquid deleniti placeat dolor esse voluptatem sed neque, repellendus totam possimus debitis magni reprehenderit eum libero ipsam quas? Necessitatibus repellendus, commodi consectetur tempore doloremque delectus pariatur dolorem dolor itaque? Perspiciatis officiis aspernatur veniam accusantium pariatur non reprehenderit. Officiis dicta pariatur eius tempora, deserunt cum dolorum, corrupti minima veniam a suscipit, ab illo praesentium.</h2>
+        <div className='pt-20 pb-20 lg:px-0 px-5'>
+            <div className='flex justify-between items-center'>
+            <input type="search" onChange={(event)=>{setSearchItem(event.target.value)}} className='mb-10 mt-5 p-2 form-control outline-[#ef233c]  bg-gray-100 w-1/3' placeholder="search pet name" name="" id="" />
+             <Select
+              className='w-1/4 mb-10 mt-5'
+              options={options}
+              onChange={handleChange}
+              />
+            </div>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7'>
+                {  
+                    allPet.filter((val) => 
+                     {    
+                           if (searchItem === '') {
+                                  return val;
+                           }else if(val.petName.toLowerCase().includes(searchItem.toLowerCase())){
+                                  return val;
+                           }
+                     }
+                  ).map(pets => 
+                    <div key={pets._id}>
+                        <img className='h-[270px] w-full rounded-t-lg ' src={pets.image} alt="" srcset="" />
+                        <p className='font-bold text-xl mt-3 mb-2'>{pets.petName}</p>
+                        <p>{pets.date}</p>
+                        <p className='text-gray-600'> Age : {pets.petAge}</p>
+                        <p className='text-gray-600'> Location : {pets.petLocation}</p>
+                        <button className='mt-2 px-5 py-2 font-bold bg-[#ef233c] text-white rounded-sm'>pet details</button>
+                    </div>
+                    )
+
+                }
+            </div>
         </div>
     );
 };

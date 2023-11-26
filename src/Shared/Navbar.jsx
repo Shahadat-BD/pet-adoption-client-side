@@ -4,9 +4,10 @@ import logo from '../assets/logo.png'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAdmin from '../hooks/useAdmin';
 
 const Navbar = () => {
- 
+  const [isAdmin] = useAdmin()
   const { user, logOut } = useContext(AuthContext)
   const handleLogOut = () => {
     logOut()
@@ -85,8 +86,11 @@ const Navbar = () => {
             </label>
             <ul tabIndex={0} className="dropdown-content z-[1] menu  shadow text-black bg-base-100 rounded-box w-52">
               <li><p className=''>{user && user.displayName}</p></li>
-              <li><Link to={'/dashboard/addPet'}>Dashboard</Link></li>
-              <li><button onClick={handleLogOut}>Log Out</button></li>
+              { isAdmin 
+                ? <li><Link to={'/dashboard/users'}>Dashboard</Link></li>
+                :<li><Link to={'/dashboard/addPet'}>Dashboard</Link></li>
+              }
+              <li><button className='' onClick={handleLogOut}>Log Out</button></li>
             </ul>
           </div>
         </div>
