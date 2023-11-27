@@ -7,7 +7,7 @@ const Dashboard = () => {
     return (
         <div>
             <div className='flex lg:flex-row flex-col h-[100%]'>
-                <div className='lg:w-[270px] w-full lg:min-h-screen h-[100%] bg-[#2C3E50]'>
+                <div className='lg:w-[270px] w-full lg:h-[100vh] h-[100%] bg-[#2C3E50]'>
                     <ul className='menu'>
                         <div className='flex items-center text-center my-5'>
                           <img className='h-10' src={logo} alt="" srcset="" />

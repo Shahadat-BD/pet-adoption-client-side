@@ -5,6 +5,7 @@ import useAxiosPublic from '../../../../hooks/useAxiosPublic';
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -25,6 +26,7 @@ const options = [
 
   const { register, handleSubmit,reset } = useForm()
   const axiosPublic = useAxiosPublic()
+  const axiosSecure = useAxiosSecure()
  
   const onSubmit =  async (data) => {
       // image upload to imageBB and get url.then send to database with others data.
@@ -48,7 +50,7 @@ const options = [
                 petDescription : data.petDescription,
                 image : res.data.data.display_url
           }
-            const petRes = await axiosPublic.post('/addPet',addPetInfo)
+            const petRes = await axiosSecure.post('/addPet',addPetInfo)
                  if (petRes.data.insertedId) {
                     toast('pet added in database successfully')
                  }

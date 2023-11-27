@@ -11,7 +11,7 @@ const PetDetails = () => {
     const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     const petDetailsData = useLoaderData()
-    const { petName, petAge, petLocation, category,_id, petOwnerInfo, petDescription, image } = petDetailsData
+    const { petName, petAge, petLocation, category, petOwnerInfo, petDescription, image } = petDetailsData
 
     const onSubmit = (data) => {
           const adoptionReqInfo = {
@@ -26,10 +26,6 @@ const PetDetails = () => {
              if(res.data.insertedId){
                 toast("pet adoption request successfully added in database.")
              }
-        })
-        axiosPublic.patch(`/addPet/${_id}`,{adopted : true})
-        .then(res => {
-            console.log(res.data);
         })
         reset()
     }
@@ -63,11 +59,11 @@ const PetDetails = () => {
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div>
                                     <label className='font-bold'>Your name</label>
-                                    <input  className='w-full my-5 px-10 py-2 border-2 rounded-md border-gray-200 form-control'  {...register("name")} defaultValue={user?.displayName} type="text" id="" />
+                                    <input disabled className='w-full my-5 px-10 py-2 border-2 rounded-md border-gray-200 form-control'  {...register("name")} defaultValue={user?.displayName} type="text" id="" />
                                 </div>
                                 <div>
                                     <label className='font-bold'>Your email</label>
-                                    <input  className='w-full my-5 px-10 py-2 border-2 rounded-md border-gray-200 form-control'  {...register("email")} defaultValue={user?.email} type="email" id="" />
+                                    <input disabled  className='w-full my-5 px-10 py-2 border-2 rounded-md border-gray-200 form-control'  {...register("email")} defaultValue={user?.email} type="email" id="" />
                                 </div>
                                 <div>
                                     <label className='font-bold'>Your phone number</label>
