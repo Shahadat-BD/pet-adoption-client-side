@@ -3,7 +3,6 @@ import Root from "../Layout/Root";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/HomePage/Home";
 import PetListing from "../Pages/PetListing/PetListing";
-import DonationCamPagins from "../Pages/DonationCamPagins/DonationCamPagins";
 import Login from "../Authentication/Login/Login";
 import Register from "../Authentication/Register/Register";
 import PrivateRoute from "./PrivateRoute";
@@ -16,6 +15,10 @@ import AllPets from "../Pages/Dashboard/AdminDashboard/AllPets/AllPets";
 import AllDonation from "../Pages/Dashboard/AdminDashboard/AllDonation/AllDonation";
 import AdminRotes from "./AdminRotes";
 import PetDetails from "../Pages/PetDetails/PetDetails";
+import AdoptionRequest from "../Pages/Dashboard/UserDashboard/AdoptionRequest/AdoptionRequest";
+import UpdatedPets from "../Pages/Dashboard/UpdatedPets/UpdatedPets";
+import DonationCamListDetails from "../Pages/DonationCamListDetails/DonationCamListDetails";
+import DonationCampaignList from "../Pages/DonationCampaignList/DonationCampaignList";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +41,12 @@ const router = createBrowserRouter([
          },
         {
           path : "/donationCampaign",
-          element : <DonationCamPagins/>
+          element : <DonationCampaignList/>
+        },
+        {
+          path : "/addCampaign/:id",
+          element :<DonationCamListDetails></DonationCamListDetails>,
+          loader : ({params}) => fetch(`http://localhost:3000/addCampaign/${params.id}`)
         },
         {
           path : "/login",
@@ -66,8 +74,18 @@ const router = createBrowserRouter([
           element :<MyAddedPets/>
         },
         {
+          path : "adoptionRequest",
+          element : <AdoptionRequest/>
+        },
+        {
           path : "createDonationCampaign",
           element :<CreateDonationCampaign/>
+        },
+        // Updated pet for user and admin
+        {
+          path : 'updateItem/:id',
+          element : <UpdatedPets/>,
+          loader : ({params}) => fetch(`http://localhost:3000/addPet/${params.id}`)
         },
         // only admin go to this route.
         {

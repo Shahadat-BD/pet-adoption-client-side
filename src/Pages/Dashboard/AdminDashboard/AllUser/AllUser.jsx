@@ -46,7 +46,7 @@ const AllUser = () => {
 return (
         <div className='pt-5 lg:px-20  bg-[#F6F6F6] h-[100%]'>
             
-          {/* all user table */}
+          {/* all user data */}
           <div className='bg-[white] p-8 mb-10'>
              <p className='uppercase text-xl font-semibold logo mb-5'>Total Users : {users.length} </p>
                 <div className="overflow-x-auto">

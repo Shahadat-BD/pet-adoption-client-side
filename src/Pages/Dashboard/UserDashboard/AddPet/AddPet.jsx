@@ -141,8 +141,8 @@ const options = [
                    </div>
                      
                      <div>
-                        <label htmlFor="">please added pet image</label>
-                        <input {...register("image",{required:true})} type="file" className="w-full" />
+                        <label >please added pet image</label>
+                        <input {...register("image",{required:true})}  type="file" className="w-full mt-3" />
                      </div>
                      
                    <div>

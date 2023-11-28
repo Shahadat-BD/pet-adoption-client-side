@@ -1,0 +1,36 @@
+import React from 'react';
+import useAxiosPublic from '../../hooks/useAxiosPublic';
+import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
+
+const DonationCampaignList = () => {
+    const axiosPublic = useAxiosPublic()
+    const { data : campaign = []} = useQuery({
+        queryKey :['campaign'],
+        queryFn : async()=>{
+            const res = await axiosPublic.get('/addCampaign')
+            return  res.data
+        }
+    })
+    return (
+        <div className='pt-20 pb-20 lg:px-0 px-5'>
+          
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-7'>
+                {  
+                    campaign.map(donationCam => 
+                    <div key={donationCam._id}>
+                        <img className='h-[270px] w-full rounded-t-lg ' src={donationCam.image} alt="" srcset="" />
+                        <p className='font-bold text-xl mt-3 mb-2'>{donationCam.petName}</p>
+                        <p className='text-gray-600 font-bold'> donation amount : {donationCam.donationAmount}</p>
+                        <p className='text-gray-600'> Donated Amount : 00 </p>
+                       <Link to={`/addCampaign/${donationCam._id}`}> <button className='mt-2 px-5 py-2 font-bold bg-[#ef233c] text-white rounded-sm'>view details</button></Link>
+                    </div>
+                    )
+
+                }
+            </div>
+        </div>
+    );
+};
+
+export default DonationCampaignList;
