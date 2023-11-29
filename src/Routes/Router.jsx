@@ -19,6 +19,9 @@ import AdoptionRequest from "../Pages/Dashboard/UserDashboard/AdoptionRequest/Ad
 import UpdatedPets from "../Pages/Dashboard/UpdatedPets/UpdatedPets";
 import DonationCamListDetails from "../Pages/DonationCamListDetails/DonationCamListDetails";
 import DonationCampaignList from "../Pages/DonationCampaignList/DonationCampaignList";
+import MyDonation from "../Pages/Dashboard/UserDashboard/MyDonation/MyDonation";
+import MyDonationCampaign from "../Pages/Dashboard/UserDashboard/MyDonationCampaign/MyDonationCampaign";
+import UpdateDonation from "../Pages/Dashboard/UpdateDonation/UpdateDonation";
 
 const router = createBrowserRouter([
     {
@@ -81,12 +84,25 @@ const router = createBrowserRouter([
           path : "createDonationCampaign",
           element :<CreateDonationCampaign/>
         },
+        {
+          path : 'myDonationCampaign',
+          element : <MyDonationCampaign/>,
+        },
+        {
+          path : 'myDonation',
+          element : <MyDonation/>
+        },
         // Updated pet for user and admin
         {
           path : 'updateItem/:id',
           element : <UpdatedPets/>,
           loader : ({params}) => fetch(`http://localhost:3000/addPet/${params.id}`)
         },
+         {
+          path : "updateDonation/:id",
+          element : <UpdateDonation/>,
+          loader : ({params}) => fetch(`http://localhost:3000/addCampaign/${params.id}`)
+         },
         // only admin go to this route.
         {
           path : "users",

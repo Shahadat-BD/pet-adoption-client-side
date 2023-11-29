@@ -6,12 +6,12 @@ import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const DjonationCamListDetails = () => {
+const DonationCamListDetails = () => {
     const { register, handleSubmit, reset } = useForm()
     const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     const donationCampaignInfo = useLoaderData()
-    const { petName, donationAmount,_id, image , shortInfo, longInfo} = donationCampaignInfo
+    const { petName, donationAmount, _id, image , shortInfo, longInfo} = donationCampaignInfo
 
   
    
@@ -22,7 +22,10 @@ const DjonationCamListDetails = () => {
               phoneNumber : data.number,
               address : data.address,
               donation : data.donation,
-              campaignId : _id
+              campaignId : _id,
+              image : image,
+              petName : petName,
+
         }
         
       axiosPublic.post('/donationUser',donationUserInfo)

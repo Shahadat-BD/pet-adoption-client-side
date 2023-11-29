@@ -16,7 +16,7 @@ const Dashboard = () => {
                         {
                             isAdmin ?
                                 <>
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -27,7 +27,7 @@ const Dashboard = () => {
                                             to={'/dashboard/users'}>ALL USER
                                         </NavLink>
                                     </li>
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -37,7 +37,7 @@ const Dashboard = () => {
                                             to={'/dashboard/allPets'}>ALL PETS
                                         </NavLink>
                                     </li>
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -51,7 +51,7 @@ const Dashboard = () => {
                                 :
                                 <>
 
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -61,7 +61,7 @@ const Dashboard = () => {
                                             to={'/dashboard/addPet'}> ADD PET
                                         </NavLink>
                                     </li>
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -71,7 +71,7 @@ const Dashboard = () => {
                                             to={'/dashboard/myAddedPets'}>MY ADDED PETS
                                         </NavLink>
                                     </li>
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -81,7 +81,7 @@ const Dashboard = () => {
                                             to={'/dashboard/adoptionRequest'}> ADOPTION REQUEST
                                         </NavLink>
                                     </li>
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -91,7 +91,7 @@ const Dashboard = () => {
                                             to={'/dashboard/createDonationCampaign'}> CREATE DONATION CAMPAIGN
                                         </NavLink>
                                     </li>
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -101,7 +101,7 @@ const Dashboard = () => {
                                             to={'/dashboard/myDonationCampaign'}> MY DONATION CAMPAIGN
                                         </NavLink>
                                     </li>
-                                    <li className=' text-lg font-medium'>
+                                    <li className='text-lg font-medium'>
                                         <NavLink
                                             style={({ isActive }) => ({
                                                 color: isActive ? "#ef233c" : "white",
@@ -116,7 +116,7 @@ const Dashboard = () => {
 
                         {/* shared nav link for admin and general users */}
                         <hr className='my-5' />
-                        <li className=' text-lg font-medium'>
+                        <li className='text-lg font-medium'>
                             <NavLink className={'hover:text-[#ef233c] text-white font-bold'}
                                 style={({ isActive }) => ({
                                     background: isActive ? 'none' : 'none',
@@ -124,7 +124,7 @@ const Dashboard = () => {
                                 to={'/'}> HOME
                             </NavLink>
                         </li>
-                        <li className=' text-lg font-medium'>
+                        <li className='text-lg font-medium'>
                             <NavLink className={'hover:text-[#ef233c] text-white font-bold'}
                                 style={({ isActive }) => ({
                                     background: isActive ? 'none' : 'none',
@@ -132,7 +132,7 @@ const Dashboard = () => {
                                 to={'/petListing'}>PET LISTING
                             </NavLink>
                         </li>
-                        <li className=' text-lg font-medium'>
+                        <li className='text-lg font-medium'>
                             <NavLink className={'hover:text-[#ef233c] text-white font-bold'}
                                 style={({ isActive }) => ({
                                     background: isActive ? 'none' : 'none',

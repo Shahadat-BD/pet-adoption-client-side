@@ -11,7 +11,7 @@ const PetDetails = () => {
     const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     const petDetailsData = useLoaderData()
-    const { petName, petAge, petLocation, category, petOwnerInfo, petDescription, image } = petDetailsData
+    const { petName, email, petAge, petLocation, category, petOwnerInfo, petDescription, image } = petDetailsData
 
     const onSubmit = (data) => {
           const adoptionReqInfo = {
@@ -20,6 +20,7 @@ const PetDetails = () => {
                 phoneNumber : data.number,
                 address : data.address,
                 petName : petName,
+                petOwnerEmail : email
           }
         //   /adoptReq
         axiosPublic.post('/adoptReq',adoptionReqInfo)

@@ -75,7 +75,7 @@ const AllPets = () => {
                    {/* head */}
                    <thead className='bg-[#2C3E50] text-white'>
                        <tr>
-                           <th>NUMBER</th>
+                           <th>#</th>
                            <th>EMAIL</th>
                            <th>IMAGE</th>
                            <th>PET NAME</th>

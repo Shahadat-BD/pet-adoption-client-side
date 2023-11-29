@@ -59,8 +59,8 @@ const options = [
   }
 
     return (
-        <div className='lg:mx-24 mx-5  h-[100%] mb-5'>
-              <h1 className='text-4xl font-bold my-5'>ADD PET</h1>
+        <div className='mx-5  h-[100%] mb-5'>
+              <h1 className='text-3xl font-bold my-5'>ADD PET</h1>
               <form onSubmit={handleSubmit(onSubmit)}>
                   <div className='flex lg:flex-row flex-col lg:gap-5'>
                      <div className='w-full'>

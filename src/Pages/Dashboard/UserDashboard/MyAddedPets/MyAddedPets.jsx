@@ -10,6 +10,7 @@ const MyAddedPets = () => {
     const {user} = useContext(AuthContext)
     const [refetch,pets] = useAddedPets()
     const axiosSecure = useAxiosSecure()
+
     const loggedInUserPet = pets.filter((pet) => pet.email === user.email)
 
     
@@ -71,7 +72,7 @@ const MyAddedPets = () => {
 
     
     return (
-        <div className='pt-5 lg:px-20  bg-[#F6F6F6] h-[100%]'>
+        <div className='pt-5 px-5  bg-[#F6F6F6] h-[100%]'>
             
           {/* all my added data */}
           <div className='bg-[white] p-8 mb-10'>
@@ -81,7 +82,7 @@ const MyAddedPets = () => {
                         {/* head */}
                         <thead className='bg-[#2C3E50] text-white'>
                             <tr>
-                                <th>NUMBER</th>
+                                <th>#</th>
                                 <th>IMAGE</th>
                                 <th>PET NAME</th>
                                 <th>CATEGORY</th>

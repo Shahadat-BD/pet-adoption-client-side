@@ -54,7 +54,7 @@ return (
                         {/* head */}
                         <thead className='bg-[#2C3E50] text-white'>
                             <tr>
-                                <th>NUMBER</th>
+                                <th>#</th>
                                 <th>Image</th>
                                 <th>NAME</th>
                                 <th>EMAIL</th>
