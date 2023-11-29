@@ -13,7 +13,9 @@ const DonationCampaignList = () => {
         }
     })
 
-   
+
+ 
+
     campaign.forEach(item => {
         const [month, day, year] = item.date.split('/');
         item.date = new Date(`20${year}`, month - 1, day); // Assuming the years are in the 21st century
@@ -41,7 +43,7 @@ const DonationCampaignList = () => {
                         <p className='font-bold text-xl mt-3 mb-2'>{donationCam.petName}</p>
                         <p>Date : {donationCam.date}</p>
                         <p className='text-gray-600 font-bold'> donation amount : {donationCam.donationAmount}</p>
-                        <p className='text-gray-600'> Donated Amount : 00 </p>
+                        <p className='text-gray-600'> Donated Amount : {donationCam.donation} </p>
                        <Link to={`/addCampaign/${donationCam._id}`}> <button className='mt-2 px-5 py-2 font-bold bg-[#ef233c] text-white rounded-sm'>view details</button></Link>
                     </div>
                     )

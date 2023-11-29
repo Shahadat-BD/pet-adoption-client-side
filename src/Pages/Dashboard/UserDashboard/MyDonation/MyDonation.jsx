@@ -22,7 +22,7 @@ const MyDonation = () => {
 
 
     return (
-        <div className='pt-5 lg:px-20  bg-[#F6F6F6] h-[100%]'>
+        <div className='pt-5 px-5  bg-[#F6F6F6] h-[100%]'>
             
         {/* all user data */}
         <div className='bg-[white] p-8 mb-10'>

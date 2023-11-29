@@ -27,7 +27,8 @@ const MyDonationCampaign = () => {
    })
 
 
-
+const donatorInfo = donators.filter(donator=> donator.donationOwner === user.email)
+console.log(donatorInfo);
 
     return (
         <div className='pt-5 lg:px-5 px-2  bg-[#F6F6F6] h-[100%]'>
@@ -65,7 +66,7 @@ const MyDonationCampaign = () => {
                                          {addedCampaign.donationAmount}
                                       </td>
                                       <td>
-                                       <progress className="progress progress-primary w-56" value={500} max={addedCampaign.donationAmount}></progress>
+                                       <progress className="progress progress-primary w-56" value={addedCampaign.donation} max={addedCampaign.donationAmount}></progress>
                                       </td>
 
                                       <td>
@@ -81,7 +82,7 @@ const MyDonationCampaign = () => {
                                       
                                          <div className='flex'>
                               
-                                        { addedCampaign._id === '65658d94a8704dded320f082' ? <button  className='bg-blue-500 p-2 rounded-md text-white text-sm' onClick={() => document.getElementById('my_modal_3').showModal()}>view donators</button> : <button className='btn'>donator</button> }
+                                        {donatorInfo && <button  className='bg-blue-500 p-2 rounded-md text-white text-sm' onClick={() => document.getElementById('my_modal_3').showModal()}>view donator</button> }
                     <dialog id="my_modal_3" className="modal">
                         <div className="modal-box w-11/12 max-w-5xl">
                             <form method="dialog">
@@ -110,7 +111,7 @@ const MyDonationCampaign = () => {
                               {/* row */}
     
                               {
-                                   donators.map(donator => 
+                                  donatorInfo.map(donator => 
                                         <tr key={donator._id} >
                                         <th>
                                             {index + 1}

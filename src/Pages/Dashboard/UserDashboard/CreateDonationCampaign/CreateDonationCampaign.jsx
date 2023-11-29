@@ -28,9 +28,10 @@ const currentTime =  new Date().toLocaleTimeString();
             }
         })
          if (res.data.success) {
+            const parseDonationInt = parseFloat(data.donationAmount)
             const campaignInfo = {
                   petName : data.petName,
-                  donationAmount : data.donationAmount,
+                  donationAmount : parseDonationInt ,
                   lastDate : data.lastDate,
                   email : user.email,
                   date : currentDate,

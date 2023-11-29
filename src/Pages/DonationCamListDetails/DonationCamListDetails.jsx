@@ -11,23 +11,22 @@ const DonationCamListDetails = () => {
     const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     const donationCampaignInfo = useLoaderData()
-    const { petName, donationAmount, _id, image , shortInfo, longInfo} = donationCampaignInfo
+    const { petName, donationAmount,email, _id, image , shortInfo, longInfo} = donationCampaignInfo
 
   
-   
     const onSubmit = (data) => {
+        const donation = parseFloat(data.donation)
         const donationUserInfo = {
               name : user?.displayName,
               email :user?.email,
               phoneNumber : data.number,
               address : data.address,
-              donation : data.donation,
+              donation : donation,
               campaignId : _id,
               image : image,
+              donationOwner : email,
               petName : petName,
-
         }
-        
       axiosPublic.post('/donationUser',donationUserInfo)
       .then(res => {
            if(res.data.insertedId){
@@ -35,6 +34,15 @@ const DonationCamListDetails = () => {
            }
       })
       reset()
+       const donatedAmount ={
+              donation : donation
+       }
+      axiosPublic.put(`/addCampaign/${_id}`,donatedAmount)
+      .then(res => {
+           if (res.data.modifiedCount > 0) {
+              console.log('donation sucessfull');
+           }
+      })
   }
 
 

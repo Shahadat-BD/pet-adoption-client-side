@@ -5,6 +5,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 
 const PetDetails = () => {
     const { register, handleSubmit, reset } = useForm()
@@ -33,6 +34,16 @@ const PetDetails = () => {
     }
 
 
+    const handleErrorMessageShow = () =>{
+        Swal.fire({
+            position: "top-center",
+            icon: "error",
+            title: "you can't adopt this pet.Because it's you create it",
+            showConfirmButton: false,
+            timer: 2000
+          });
+    }
+
     return (
         <div className='pt-20 pb-10 lg:w-1/2 m-auto lg:px-0 px-5'>
             <img className='w-full lg:h-[350px] h-[300px] rounded-sm' src={image} alt="" srcset="" />
@@ -51,7 +62,7 @@ const PetDetails = () => {
 
             <div>
                 <div className='flex'>
-                    <button className="bg-[#ef233c] font-bold text-white px-16 text-xl py-3 rounded-sm mt-5" onClick={() => document.getElementById('my_modal_3').showModal()}>Adopt</button>
+                    {user?.email === email ? <button onClick={()=>handleErrorMessageShow()} className='bg-[#ef233c] font-bold text-white px-16 text-xl py-3 rounded-sm mt-5'>Adopt</button>  : <button className="bg-[#ef233c] font-bold text-white px-16 text-xl py-3 rounded-sm mt-5" onClick={() => document.getElementById('my_modal_3').showModal()}>Adopt</button>}
                     <dialog id="my_modal_3" className="modal">
                         <div className="modal-box">
                             <form method="dialog">
@@ -76,7 +87,7 @@ const PetDetails = () => {
                                     <input  className='w-full my-5 px-10 py-2 border-2 rounded-md border-gray-200 form-control'  {...register("address", { required: true })} placeholder='your address'  type="text" id="" />
                                 </div>
                              
-                                    <input className='bg-[#ef233c] text-white rounded-md px-8 py-2 cursor-pointer' type="submit" value="adoption request" />
+                                <input className='bg-[#ef233c] text-white rounded-md px-8 py-2 cursor-pointer' type="submit" value="adoption request" />
                             
                             </form>
                         </div>
