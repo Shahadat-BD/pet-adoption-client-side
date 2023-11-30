@@ -40,7 +40,7 @@ const router = createBrowserRouter([
          {
            path : "/addPet/:id",
            element : <PrivateRoute><PetDetails></PetDetails></PrivateRoute>,
-           loader : ({params}) => fetch(`http://localhost:3000/addPet/${params.id}`)
+           loader : ({params}) => fetch(`https://pet-adoption-server-side-sigma.vercel.app/addPet/${params.id}`)
          },
         {
           path : "/donationCampaign",
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         {
           path : "/addCampaign/:id",
           element :<PrivateRoute><DonationCamListDetails/></PrivateRoute>,
-          loader : ({params}) => fetch(`http://localhost:3000/addCampaign/${params.id}`)
+          loader : ({params}) => fetch(`https://pet-adoption-server-side-sigma.vercel.app/addCampaign/${params.id}`)
         },
         {
           path : "/login",
@@ -96,12 +96,12 @@ const router = createBrowserRouter([
         {
           path : 'updateItem/:id',
           element : <UpdatedPets/>,
-          loader : ({params}) => fetch(`http://localhost:3000/addPet/${params.id}`)
+          loader : ({params}) => fetch(`https://pet-adoption-server-side-sigma.vercel.app/addPet/${params.id}`)
         },
          {
           path : "updateDonation/:id",
           element : <UpdateDonation/>,
-          loader : ({params}) => fetch(`http://localhost:3000/addCampaign/${params.id}`)
+          loader : ({params}) => fetch(`https://pet-adoption-server-side-sigma.vercel.app/addCampaign/${params.id}`)
          },
         // only admin go to this route.
         {

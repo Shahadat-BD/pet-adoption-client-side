@@ -56,32 +56,7 @@ const handlePausedButton = id => {
       })
 
   }
-// handle Unpaused button for when campaign owner unpaused then anyone can donate.
-//  const handleUnpausedButton = request => {
-//     Swal.fire({
-//         title: "Are you sure?",
-//         text: "You want to reject his/her adoption request!",
-//         icon: "warning",
-//         showCancelButton: true,
-//         confirmButtonColor: "#3085d6",
-//         cancelButtonColor: "#d33",
-//         confirmButtonText: "Yes, I want to reject this request!"
-//       }).then((result) => {
-//         if (result.isConfirmed) {
-//             axiosSecure.put(`/adoptReq/${request._id}`,{accept: false})
-//             .then(res => {
-//                 if (res.data.modifiedCount > 0) {
-//                     Swal.fire({
-//                         title: "Adoption Request!",
-//                         text: `adoption request for ${request.petName} is an rejected now.`,
-//                         icon: "success"
-//                       });
-//                    refetch()
-//                 }
-//             })
-//         }
-//       })
-//  }
+
 
 
     return (
