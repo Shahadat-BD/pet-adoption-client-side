@@ -2,19 +2,19 @@ import React from 'react';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
 const DonationCampaignList = () => {
-    const axiosPublic = useAxiosPublic()
+    const axiosSecure = useAxiosSecure()
     const { data : campaign = []} = useQuery({
         queryKey :['campaign'],
         queryFn : async()=>{
-            const res = await axiosPublic.get('/addCampaign')
+            const res = await axiosSecure.get('/addCampaign')
             return  res.data
         }
     })
 
 
- 
 
     campaign.forEach(item => {
         const [month, day, year] = item.date.split('/');

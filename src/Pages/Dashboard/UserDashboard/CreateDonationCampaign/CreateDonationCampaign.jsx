@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import useAxiosPublic from '../../../../hooks/useAxiosPublic';
-import useAxiosSecure from '../../../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +12,6 @@ const CreateDonationCampaign = () => {
     const {user} = useContext(AuthContext)
     const { register, handleSubmit,reset } = useForm()
     const axiosPublic = useAxiosPublic()
-    const axiosSecure = useAxiosSecure()
 
    //   current date and time
 const currentDate =  new Date().toLocaleDateString()
@@ -38,9 +36,10 @@ const currentTime =  new Date().toLocaleTimeString();
                   time : currentTime,
                   shortInfo : data.shortInfo,
                   longInfo : data.longInfo,
-                  image : res.data.data.display_url
+                  image : res.data.data.display_url,
+                  paused : true
             }
-              const campaignRes = await axiosSecure.post('/addCampaign',campaignInfo)
+              const campaignRes = await useAxiosPublic.post('/addCampaign',campaignInfo)
                    if (campaignRes.data.insertedId) {
                       toast('donation campaign info added in database successfully')
                    }

@@ -35,11 +35,11 @@ const router = createBrowserRouter([
         },
         {
           path : "/petListing",
-          element : <PrivateRoute><PetListing/></PrivateRoute>
+          element :<PetListing/>
         },
          {
            path : "/addPet/:id",
-           element : <PetDetails></PetDetails>,
+           element : <PrivateRoute><PetDetails></PetDetails></PrivateRoute>,
            loader : ({params}) => fetch(`http://localhost:3000/addPet/${params.id}`)
          },
         {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         },
         {
           path : "/addCampaign/:id",
-          element :<DonationCamListDetails></DonationCamListDetails>,
+          element :<PrivateRoute><DonationCamListDetails/></PrivateRoute>,
           loader : ({params}) => fetch(`http://localhost:3000/addCampaign/${params.id}`)
         },
         {

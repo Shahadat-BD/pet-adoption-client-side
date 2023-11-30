@@ -10,7 +10,6 @@ const MyAddedPets = () => {
     const {user} = useContext(AuthContext)
     const [refetch,pets] = useAddedPets()
     const axiosSecure = useAxiosSecure()
-
     const loggedInUserPet = pets.filter((pet) => pet.email === user.email)
 
     

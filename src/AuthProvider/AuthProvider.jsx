@@ -13,10 +13,13 @@ const auth = getAuth(app)
 
 const googleProvider = new GoogleAuthProvider()
 
+
 const googleSignIn = () =>{
     setLoading(true)
    return signInWithPopup(auth,googleProvider)
 }
+
+
 
 const createSignInUser = (email,password) =>{
    setLoading(true)
