@@ -5,6 +5,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2';
 
 const DonationCamListDetails = () => {
     const { register, handleSubmit, reset } = useForm()
@@ -34,19 +35,10 @@ const DonationCamListDetails = () => {
            }
       })
       reset()
-       const donatedAmount ={
-              donation : donation
-       }
-      axiosPublic.put(`/addCampaign/${_id}`,donatedAmount)
-      .then(res => {
-           if (res.data.modifiedCount > 0) {
-              console.log('donation sucessfull');
-           }
-      })
   }
 
 
-
+  
     return (
         <div className='pt-20 pb-10 lg:w-1/2 m-auto lg:px-0 px-5'>
             <img className='w-full lg:h-[350px] h-[300px] rounded-sm' src={image} alt="" srcset="" />
@@ -63,7 +55,7 @@ const DonationCamListDetails = () => {
          
             <div>
                 <div className='flex'>
-                    <button className="bg-[#ef233c] font-bold text-white px-16 text-xl py-3 rounded-sm mt-5" onClick={() => document.getElementById('my_modal_3').showModal()}>Donate Now</button>
+                      <button className="bg-[#ef233c] font-bold text-white px-16 text-xl py-3 rounded-sm mt-5"  onClick={() => document.getElementById('my_modal_3').showModal()}>Donate Now</button>
                     <dialog id="my_modal_3" className="modal">
                         <div className="modal-box">
                             <form method="dialog">

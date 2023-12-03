@@ -10,7 +10,7 @@ const MyDonationCampaign = () => {
 
     const axiosSecure = useAxiosSecure()
     const {user} = useContext(AuthContext)
-    const { data : addedDonation = []} = useQuery({
+    const {refetch, data : addedDonation = []} = useQuery({
         queryKey :['myDonation'],
         queryFn : async()=>{
             const res = await axiosSecure.get('/addCampaign')
@@ -19,7 +19,7 @@ const MyDonationCampaign = () => {
     })
    const addedDonationInfo = addedDonation.filter(addDonationCampaign => addDonationCampaign.email === user.email)
    
-   const { data : donators = []} = useQuery({
+   const {data : donators = []} = useQuery({
        queryKey :['donators'],
        queryFn : async()=>{
            const res = await axiosSecure.get('/donationUser')
@@ -45,7 +45,7 @@ const handlePausedButton = id => {
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
-                        title: "user!",
+                        title: "paused campaign!",
                         text: `your campaign is paused now.`,
                         icon: "success"
                       });
@@ -56,7 +56,33 @@ const handlePausedButton = id => {
       })
 
   }
+// handle Unpaused button for when campaign owner unpaused then anyone can donate.
 
+ const handleUnpausedButton = id => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You want to unpaused your campaign",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, I want to unpaused!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+            axiosSecure.put(`/addCampaign/${id}`,{paused: false})
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: "campaign unpaused!",
+                        text: `your campaign again running.`,
+                        icon: "success"
+                      });
+                   refetch()
+                }
+            })
+        }
+      })
+ }
 
 
     return (
@@ -103,7 +129,7 @@ const handlePausedButton = id => {
                                       </td>
 
                                       <td>
-                                       { addedCampaign.paused === false ? <button  className='bg-gray-500 p-2 rounded-md text-white text-sm'> unpaused </button>  :    <button onClick={()=>handlePausedButton(addedCampaign._id)} className='bg-gray-500 p-2 rounded-md text-white text-sm'> paused </button> }
+                                       { addedCampaign.paused === false ? <button onClick={()=> handleUnpausedButton(addedCampaign._id)} className='bg-red-500 p-2 rounded-md text-white text-sm'> unpaused </button>  :    <button onClick={()=>handlePausedButton(addedCampaign._id)} className='bg-blue-500 p-2 rounded-md text-white text-sm'> paused </button> }
                                       </td>
                                       
                                       <td>

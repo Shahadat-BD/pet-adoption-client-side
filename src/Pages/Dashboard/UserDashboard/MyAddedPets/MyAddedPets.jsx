@@ -123,7 +123,7 @@ const MyAddedPets = () => {
                                             {
                                                 pet.adopted === false ?  <button  onClick={()=>handleAdoptionStatus(pet._id)}  className='bg-gray-500 text-white p-2 rounded-md'>adopted</button>
                                                 :
-                                                <button  className='bg-gray-500 text-white p-2 rounded-md'>adopted</button> 
+                                                <button  className='bg-blue-500 text-white p-2 rounded-md'>adopted</button> 
                                             }
                                          
                                         </td>

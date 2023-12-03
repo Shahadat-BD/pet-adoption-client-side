@@ -56,7 +56,7 @@ const Login = () => {
     <div className="pt-20 pb-16">
         <div className="hero-content">
           <div className="card flex-shrink-0 w-full max-w-md bg-gray-200  dark:bg-base-100">
-            <h1 className="text-3xl font-semibold text-center mt-3 text-pink-600">
+            <h1 className="text-3xl font-semibold text-center mt-3 text-[#ef233c]">
               Login Now
             </h1>
             <form className="px-5 pt-3" onSubmit={handleLoginForm}>
@@ -86,7 +86,7 @@ const Login = () => {
                 <span onClick={() => setShowPassword(!showPassword)} className='absolute lg:ml-[365px] ml-[300px] md:ml-[350px] mt-[52px] cursor-pointer'>{showPassword ? <FiEye /> : <FiEyeOff />}</span>
               </div>
               <div className="form-control mt-6">
-                <input className="text-white border-none cursor-pointer bg-pink-600 py-3 text-lg font-semibold rounded-md"
+                <input className="text-white border-none cursor-pointer bg-[#ef233c] py-3 text-lg font-semibold rounded-md"
                   value={'Login'}
                   type="submit"
                 >
@@ -94,7 +94,7 @@ const Login = () => {
               </div>
               <p className="text-center my-2">-----or-----</p>
             </form>
-            <div onClick={handleGoogleSignIn} className="flex cursor-pointer justify-center items-center border border-pink-600 rounded-md py-3 mx-5 ">
+            <div onClick={handleGoogleSignIn} className="flex cursor-pointer justify-center items-center border border-[#ef233c] rounded-md py-3 mx-5 ">
               <FcGoogle className="text-lg font-semibold mr-4" />
               <button> Login With Google</button>
             </div>

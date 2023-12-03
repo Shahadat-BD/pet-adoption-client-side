@@ -37,7 +37,6 @@ const currentTime =  new Date().toLocaleTimeString();
                   shortInfo : data.shortInfo,
                   longInfo : data.longInfo,
                   image : res.data.data.display_url,
-                  paused : true
             }
               const campaignRes = await useAxiosPublic.post('/addCampaign',campaignInfo)
                    if (campaignRes.data.insertedId) {
