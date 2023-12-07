@@ -5,7 +5,7 @@
 Click here for the Project Live site Link: [https://pet-adoption-auth-1c311.web.app/)
 
 ### Note 
-* this project is no finished.Project updating is currently underway. And the following admin and user descriptions will be updated
+* this project is not finished.Project updating is currently underway. And the following admin and user descriptions will be updated
 ## Main features.
 * This is a simple MERN stack website. It's a pet adoption related website.
 * This website created for mobile,tablet and desktop user.
