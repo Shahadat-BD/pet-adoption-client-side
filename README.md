@@ -5,7 +5,7 @@
 Click here for the Project Live site Link: [https://pet-adoption-auth-1c311.web.app/)
 
 ### Note 
-* First of all I am sorry to say that , I can not implement donation campaign features properly.many mistakes has been remain.So I will update after getting the assignment marks.
+* this project is no finished.Project updating is currently underway. And the following admin and user descriptions will be updated
 ## Main features.
 * This is a simple MERN stack website. It's a pet adoption related website.
 * This website created for mobile,tablet and desktop user.
@@ -43,5 +43,6 @@ Click here for the Project Live site Link: [https://pet-adoption-auth-1c311.web.
 * Node.js
 * Express.js
 * MongoDB
+* JWT
 
 
